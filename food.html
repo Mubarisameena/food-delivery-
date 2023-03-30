@@ -1,0 +1,188 @@
+<html>
+	<head>
+		<title>CSIP FOOD ORDER!</title>
+		<style type="text/css">
+			body {background-image: url("https://wallpapercave.com/wp/Dp3Xq6o.jpg");}
+			h1   {text-align: center; color: white; font-family: segoe ui; font-size: 50;}
+			p    {color: white; font-family: segoe ui;}
+			hr {width: 100%; height: 20; border-color: white; background-color: white;}
+			td {font-family: segoe ui; font-size: 20; color: white; text-align: center;}
+			table, tr, td {border: 2px solid white; border-collapse: collapse;}
+			div.invoice {color: white; font-family: segoe ui; font-size: 20}
+			button {background-color: #2196F3;border: none; color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;font-family: futura hv bt;}
+			input[type=text] {width: 100px;padding: 12px 20px;margin: 8px 0;box-sizing: border-box;border: 3px solid #ccc;-webkit-transition: 0.5s;transition: 0.5s;outline: none;}
+			input[type=text]:focus {border: 3px solid #555;}
+
+		</style>
+	</head>
+	<body>
+	<div id="input_div">
+		<h1>< CRINGEY CHEESE CAFE ></h1>
+		<hr align="center">
+		<table align="center">
+			<tr>
+				<td width="400px">CAFE MENU</td>
+				<td width="200px">PRICE</td>
+				<td width="200px">QUANTITY</td>
+				<td width="200px">SUBTOTAL</td>
+			</tr>
+			<tr>
+				<td>A. MACARONI AND CHEESE</td>
+				<td>Rp. 20.000</td>
+				<td><button onclick="decreaseA()">-</button><button onclick="increaseA()">+</button><input type="text" id="aa" value="0"></td>
+ 				<td><input type="text" id="one" value="0"></td>
+			</tr>
+			<tr>
+				<td>B. CHEESE LASAGNA</td>
+				<td>Rp. 30.000</td>
+				<td><button onclick="decreaseB()">-</button><button onclick="increaseB()">+</button><input type="text" id="bb" value="0"></td>
+ 				<td><input type="text" id="two" value="0"></td>
+			</tr>
+			<tr>
+				<td>C. MOZZARELLA CHEESE OMELETTE</td>
+				<td>Rp. 40.000</td>
+				<td><button onclick="decreaseC()">-</button><button onclick="increaseC()">+</button><input type="text" id="cc" value="0"></td>
+ 				<td><input type="text" id="three" value="0"></td>
+			</tr>
+			<tr>
+				<td>D. OREO CHEESECAKE</td>
+				<td>Rp. 30.000</td>
+				<td><button onclick="decreaseD()">-</button><button onclick="increaseD()">+</button><input type="text" id="dd" value="0"></td>
+ 				<td><input type="text" id="four" value="0"></td>
+			</tr>
+			<tr>
+				<td>E. OREO MILKSHAKE</td>
+				<td>Rp. 20.000</td>
+				<td><button onclick="decreaseE()">-</button><button onclick="increaseE()">+</button><input type="text" id="ee" value="0"></td>
+ 				<td><input type="text" id="five" value="0"></td>
+			</tr>
+			<tr>
+				<td colspan="4"><hr align="center"></td>
+			<tr>
+				<td colspan="3">GRAND TOTAL</td>
+  				<td id="total"></td>
+			</tr>
+	<script type="text/javascript">
+		var aa = 0;
+		function increaseA(){
+    		aa += 20000;
+    		document.getElementById('one').value = aa;
+    		document.getElementById('aa').value = aa/20000;
+			bill();
+		}
+		function decreaseA(){
+			if(aa > 0){
+    			aa -= 20000;
+    			document.getElementById('one').value = aa;
+    			document.getElementById('aa').value = aa/20000;
+			bill();
+			}
+		}
+		var bb = 0;
+		function increaseB(){
+    		bb += 30000;
+    		document.getElementById('two').value = bb;
+    		document.getElementById('bb').value = bb/30000;
+			bill();
+		}
+		function decreaseB(){
+			if(bb > 0){
+    			bb -= 30000;
+    			document.getElementById('two').value = bb;
+    			document.getElementById('bb').value = bb/30000;
+			bill();
+			}
+		}
+		var cc = 0;
+		function increaseC(){
+    		cc += 40000;
+    		document.getElementById('three').value = cc;
+    		document.getElementById('cc').value = cc/40000;
+			bill();
+		}
+		function decreaseC(){
+			if(cc > 0){
+    			cc -= 40000;
+    			document.getElementById('three').value = cc;
+    			document.getElementById('cc').value = cc/40000;
+			bill();
+			}
+		}
+		var dd = 0;
+		function increaseD(){
+    		dd += 30000;
+    		document.getElementById('four').value = dd;
+    		document.getElementById('dd').value = dd/30000;
+			bill();
+		}
+		function decreaseD(){
+			if(dd > 0){
+    			dd -= 30000;
+    			document.getElementById('four').value = dd;
+    			document.getElementById('dd').value = dd/30000;
+			bill();
+			}
+		}
+		var ee = 0;
+		function increaseE(){
+    		ee += 20000;
+    		document.getElementById('five').value = ee;
+    		document.getElementById('ee').value = ee/20000;
+			bill();
+		}
+		function decreaseE(){
+			if(ee > 0){
+    			ee -= 20000;
+    			document.getElementById('five').value = ee;
+    			document.getElementById('ee').value = ee/20000;
+			bill();
+			}
+		}
+		function bill() {
+ 			total1= aa + bb + cc + dd + ee;
+			document.getElementById("total").innerHTML = total1;
+		}
+		function list() {
+ 			if(aa>0)
+ 			document.getElementById("MAC").innerHTML = "MACARONI AND CHEESE ("+aa/20000 + ")";
+ 			if(bb>0)
+ 			document.getElementById("LAS").innerHTML = "CHEESE LASAGNA ("+bb/30000 + ")";
+ 			if(cc>0)
+ 			document.getElementById("OME").innerHTML = "MOZZARELLA CHEESE OMELETTE ("+cc/40000 + ")";
+ 			if(dd>0)
+ 			document.getElementById("OCH").innerHTML = "OREO CHEESECAKE ("+dd/30000 + ")";
+ 			if(ee>0)
+ 			document.getElementById("OMI").innerHTML = "OREO MILKSHAKE ("+ee/20000 + ")";
+ 			document.getElementById("lister").innerHTML = total1;
+ 			emp();
+		}
+		function emp() {
+    	aa = 0;
+    	document.getElementById('one').value = 0;
+    	document.getElementById('aa').value = 0;
+    	bb = 0;
+    	document.getElementById('two').value = 0;
+    	document.getElementById('bb').value = 0;
+    	cc = 0;
+    	document.getElementById('three').value = 0;
+    	document.getElementById('cc').value = 0;
+    	dd = 0;
+    	document.getElementById('four').value = 0;
+    	document.getElementById('dd').value = 0;
+    	ee = 0;
+    	document.getElementById('five').value = 0;
+    	document.getElementById('ee').value = 0;
+		}	
+	</script>
+	</table>
+	</div>
+	<center><button onclick="list()">Submit</button></center>
+	<center><p>Invoice :</p></center>
+	<p><div class="invoice" id="MAC" align="center" ></div></p>
+	<p><div class="invoice" id="LAS" align="center"></div></p>
+	<p><div class="invoice" id="OME" align="center"></div></p>
+	<p><div class="invoice" id="OCH" align="center"></div></p>
+	<p><div class="invoice" id="OMI" align="center"></div></p>
+	<p><div class="invoice" id="lister" align="center"></div></p>
+	</body>
+</html>
